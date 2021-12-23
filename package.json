@@ -1,0 +1,24 @@
+{
+  "name": "balanced-money-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JRRS1982/balanced-money-backend.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JRRS1982/balanced-money-backend/issues"
+  },
+  "homepage": "https://github.com/JRRS1982/balanced-money-backend#readme",
+  "dependencies": {
+    "apollo-server": "^3.5.0",
+    "graphql": "^15.8.0"
+  }
+}
