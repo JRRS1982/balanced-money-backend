@@ -22,6 +22,7 @@
     "apollo-server": "^3.5.0",
     "graphql": "^15.8.0",
     "reflect-metadata": "^0.1.13",
+    "sqlite3": "^4.2.0",
     "type-graphql": "^1.1.1",
     "typeorm": "^0.2.41"
   },
