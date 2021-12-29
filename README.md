@@ -11,8 +11,18 @@ A GraphQl API for data persistance of the balanced-money application
 * typescript
 * ts-node: to run the server is a development environment
 * nodemon: to restart the server when changes are made to the code
-* sqlite3: a minimal setup database with works with typeorm
+* mysql: the database
 
 ## Scripts
 
 * start: use nodemon to start the server and watch for changes in src file
+
+## MySql
+
+Commands that were run on terminal to create the database and user.
+
+```bash
+CREATE DATABASE balanced_money;
+CREATE USER 'balancedMoney'@'localhost' IDENTIFIED BY '<password>';
+GRANT ALL PRIVILEGES ON balanced_money. * TO 'balancedMoney'@'localhost';
+```
