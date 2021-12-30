@@ -1,4 +1,9 @@
 {
+  "ts-node": {
+    "moduleTypes": {
+      "jest.config.ts": "cjs" // to have jest.config as TS we need cjs
+    }
+  },
   "compilerOptions": {
     "target": "es6",
     "module": "commonjs",
@@ -25,18 +30,24 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "resolveJsonModule": true,
-    "baseUrl": "."
+    "baseUrl": "./src",
+    "paths": { // TODO npm package tsconfig-paths allows path mapping - not yet working after compile
+      "Actions*": ["Actions*"],
+      "Configs*": ["Configs*"],
+      "Entities*": ["Entities*"],
+      "Repositories*": ["Repositories*"],
+      "Resolvers*": ["Resolvers*"],
+    },
+    "typeRoots": [
+      "./node_modules/@types"
+    ],
   },
   "exclude": [
     "node_modules", 
     "dist"
   ],
-  "typeRoots": [
-    "./node_modules/@types"
-  ],
   "include": [
     "./src/**/*.tsx",
     "./src/**/*.ts"
-  ]
-  // TODO: add "paths"
+  ],
 }
