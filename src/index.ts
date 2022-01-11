@@ -8,6 +8,8 @@ import { baseConfig } from "./Configs/ormconfig";
 
 async function main() {
   await createConnection(baseConfig);
+  // TODO: add port to env file
+  const port = 4000;
 
   /**
    * use type-graphql to build a schema
@@ -19,8 +21,8 @@ async function main() {
 
   const server = new ApolloServer({ schema });
 
-  await server.listen(4000, () => {
-    console.log("Server has started!");
+  await server.listen(port, () => {
+    console.log(`Server has started on port ${port}`);
   });
 }
 main();

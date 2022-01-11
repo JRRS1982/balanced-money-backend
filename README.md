@@ -6,6 +6,9 @@ A GraphQl API for data persistance of the balanced-money application
 
 ### In Development
 
+* Update baseConfig to the database of choice.
+* Make sure you have a SQL server running - locally you may need to start it with `systemctl start mariadb` if using mariadb
+* Install packages with `npm install`
 * Start the server with `npm start`
 * Visit [http://localhost:4000/](http://localhost:4000/) to find the server running
 
@@ -18,10 +21,9 @@ TODO: add production endpoint
 ## Packages
 
 * apollo-server: to build and run the graphQl server
-* type-graphql: to generate the schema from typescript
 * [typeorm](https://github.com/typeorm/typeorm): to help interactions with the db
-* reflect-metadata: to work with TS decorators, required if using typeorm and type-graphql
-* typescript
+* reflect-metadata: to work with TS decorators, required if using typeorm
+* typescript: adding types to make JS safer
 * ts-node: to run the server is a development environment
 * nodemon: to restart the server when changes are made to the code
 * mysql: the database
@@ -34,6 +36,23 @@ TODO: add production endpoint
 ## Scripts
 
 * start: use nodemon to start the server and watch for changes in src file
+
+## Queries / Mutations
+
+TODO: add how to make a query / mutation to this application
+
+Within the Apollo GraphQl explorer check the schema and run queries such as:
+
+```graphql
+query Query {
+  transactions {
+    id
+    account
+    amount
+    date
+  }
+}
+```
 
 ## MySql
 

@@ -1,9 +1,9 @@
 import { Connection, createConnection } from "typeorm";
 import { baseConfig } from "Configs/ormconfig";
-import { getTransactionsAction } from "../GetTransactions/getTransactionsAction";
-import createTransactionRecord from "../__helpers__/createTransactionRecord.factory";
-import { transaction } from "./../__mocks__/transaction.mock";
-import { ITransaction } from 'Entities/ITransaction';
+import { getTransactionsAction } from "../getTransactionsAction";
+import createTransactionRecord from "../../__helpers__/createTransactionRecord.factory";
+import { transaction } from "../../__mocks__/transaction.mock";
+import { ITransaction } from "Entities/ITransaction";
 
 describe("getTransactions", () => {
   let connection: Connection;
