@@ -1,53 +1,60 @@
 {
-  "ts-node": {
-    "moduleTypes": {
-      "jest.config.ts": "cjs" // to have jest.config as TS we need cjs
-    }
-  },
   "compilerOptions": {
-    "target": "es6",
-    "module": "commonjs",
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": "./src",
+    "emitDecoratorMetadata": true,
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
     "lib": [
-      "dom",
-      "es6",
-      "es2017",
-      "esnext.asynciterable"
+      "es6"
     ],
-    "sourceMap": true,
-    "outDir": "./dist",
+    "module": "commonjs",
     "moduleResolution": "node",
-    "removeComments": true,
+    "noFallthroughCasesInSwitch": true,
     "noImplicitAny": true,
-    "strictNullChecks": true,
-    "strictFunctionTypes": true,
+    "noImplicitReturns": true,
     "noImplicitThis": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noImplicitReturns": true,
-    "noFallthroughCasesInSwitch": true,
-    "allowSyntheticDefaultImports": true,
-    "esModuleInterop": true,
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
-    "resolveJsonModule": true,
-    "baseUrl": "./src",
+    "outDir": "./dist",
     "paths": { // TODO npm package tsconfig-paths allows path mapping - not yet working after compile
-      "Actions*": ["Actions*"],
-      "Configs*": ["Configs*"],
-      "Entities*": ["Entities*"],
-      "Repositories*": ["Repositories*"],
-      "Resolvers*": ["Resolvers*"],
+      "Actions/*": [
+        "Actions/*"
+      ],
+      "Configs/*": [
+        "Configs/*"
+      ],
+      "Entities/*": [
+        "Entities/*"
+      ],
+      "Repositories/*": [
+        "Repositories/*"
+      ],
+      "Resolvers/*": [
+        "Resolvers/*"
+      ]
     },
+    "removeComments": true,
+    "resolveJsonModule": true,
+    "sourceMap": true,
+    "strictFunctionTypes": true,
+    "strictNullChecks": true,
+    "target": "es6",
     "typeRoots": [
       "./node_modules/@types"
-    ],
+    ]
   },
   "exclude": [
-    "node_modules", 
+    "node_modules",
     "dist"
   ],
   "include": [
     "./src/**/*.tsx",
     "./src/**/*.ts"
   ],
+  "ts-node": {
+    "moduleTypes": {
+      "jest.config.ts": "cjs" // to have jest.config as TS we need cjs
+    }
+  }
 }
