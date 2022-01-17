@@ -1,7 +1,7 @@
-import { saveTransactionAction } from "../Actions/SaveTransaction/saveTransactionAction";
-import { Args, Field, ArgsType, Mutation, Query, Resolver } from "type-graphql";
-import { getTransactionsAction } from "../Actions/GetTransactions/getTransactionsAction";
-import { Transaction } from "../Entities/Transaction.entity";
+import { getTransactionsAction } from "Actions/GetTransactions";
+import { saveTransactionAction } from "Actions/SaveTransaction";
+import { Transaction } from "Entities";
+import { Args, ArgsType, Field, Mutation, Query, Resolver } from "type-graphql";
 
 @ArgsType()
 class SaveTransactionArgs {

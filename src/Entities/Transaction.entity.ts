@@ -1,5 +1,5 @@
-import { Entity, BaseEntity, PrimaryGeneratedColumn, Column } from "typeorm";
-import { ObjectType, Field, ID } from "type-graphql";
+import { Field, ID, ObjectType } from "type-graphql";
+import { BaseEntity, Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 
 /**
  * TypeGraphQL automatically creates a GraphQL schema from TS classes, which helps avoid the need to create a schema definition file and interfaces describing the schema https://typegraphql.com/docs/0.17.0/types-and-fields.html
@@ -12,14 +12,14 @@ export class Transaction extends BaseEntity {
   id: number;
 
   @Field(() => String)
-  @Column({ name: "account", type: "varchar", length: 255 })
+  @Column({ name: 'account', type: 'varchar', length: 255 })
   account: string;
 
   @Field(() => Number)
-  @Column({ name: "amount", type: "decimal", precision: 9, scale: 2 }) // scale for decimal round and precision for size
+  @Column({ name: 'amount', type: 'decimal', precision: 9, scale: 2 }) // scale for decimal round and precision for size
   amount: number;
 
   @Field(() => Date)
-  @Column({ name: "date", type: "timestamp", precision: 3 }) // need precision for microseconds in Date()
+  @Column({ name: 'date', type: 'timestamp', precision: 3 }) // need precision for microseconds in Date()
   date: Date;
 }

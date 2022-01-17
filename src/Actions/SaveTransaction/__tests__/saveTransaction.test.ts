@@ -1,12 +1,10 @@
-import { Connection, createConnection } from "typeorm";
 import { baseConfig } from "Configs/ormconfig";
-import { saveTransactionAction } from "../saveTransactionAction";
-import createTransactionRecord from "../../__helpers__/createTransactionRecord.factory";
-import { transaction } from "../../__mocks__/transaction.mock";
-import { ITransaction } from "Entities/ITransaction";
-import { getTransactions } from "Repositories/Transaction";
+import { ITransaction } from "Entities";
+import { getTransactions, saveTransaction } from "Repositories/Transaction";
+import { Connection, createConnection } from "typeorm";
+import { transaction } from "Actions/__mocks__/transaction.mock";
 
-describe("saveTransactions", () => {
+describe('saveTransactions', () => {
   let connection: Connection;
   let transactionMock: ITransaction;
 
@@ -22,12 +20,8 @@ describe("saveTransactions", () => {
     jest.resetAllMocks;
   });
 
-  it("should successfully return all transactions", async () => {
-    createTransactionRecord(transactionMock);
-    const before = await getTransactions();
-
-    expect(before.length).toEqual(0);
-    await saveTransactionAction(transactionMock);
+  it('should successfully save a transaction', async () => {
+    await saveTransaction(transactionMock);
     const after = await getTransactions();
 
     expect(after.length).toEqual(1);

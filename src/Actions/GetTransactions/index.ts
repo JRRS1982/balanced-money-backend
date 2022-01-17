@@ -1,1 +1,1 @@
-export { getTransactionsAction } from "./getTransactionsAction";
+export { getTransactionsAction } from './getTransactionsAction';

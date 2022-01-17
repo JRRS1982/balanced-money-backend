@@ -1,9 +1,9 @@
-import { ITransaction } from "Entities/ITransaction";
-import { Transaction } from "../../Entities/Transaction.entity";
+import { ITransaction, Transaction } from "Entities";
 
-export const saveTransaction = async (transaction: ITransaction): Promise<Transaction> => {
-  // TODO this doesn't feel right - it may be creating duplicates
+export const saveTransaction = async (
+  transaction: ITransaction
+): Promise<Transaction> => {
   const transactionEntity = Transaction.create(transaction);
-  Transaction.save(transactionEntity);
+  await Transaction.save(transactionEntity);
   return transactionEntity;
 };

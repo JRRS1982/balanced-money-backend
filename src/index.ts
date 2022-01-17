@@ -1,10 +1,10 @@
 import "reflect-metadata";
-import { createConnection } from "typeorm";
 import { ApolloServer } from "apollo-server";
+import { baseConfig } from "Configs";
+import { HelloWorldResolver } from "Resolvers/HelloWorldResolver";
+import { TransactionResolver } from "Resolvers/TransactionResolver";
 import { buildSchema } from "type-graphql";
-import { TransactionResolver } from "./Resolvers/TransactionResolver";
-import { HelloWorldResolver } from "./Resolvers/HelloWorldResolver";
-import { baseConfig } from "./Configs/ormconfig";
+import { createConnection } from "typeorm";
 
 async function main() {
   await createConnection(baseConfig);
@@ -16,7 +16,7 @@ async function main() {
    * - declare / add the resolvers to the schema
    */
   const schema = await buildSchema({
-    resolvers: [HelloWorldResolver, TransactionResolver],
+    resolvers: [HelloWorldResolver, TransactionResolver]
   });
 
   const server = new ApolloServer({ schema });

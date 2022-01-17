@@ -1,10 +1,11 @@
-import { ITransaction } from "Entities/ITransaction";
-import { Transaction } from "Entities/Transaction.entity";
+import { ITransaction, Transaction } from "Entities";
 
-export const transaction = (overwrites?: Partial<Transaction>): ITransaction => ({
+export const transaction = (
+  overwrites?: Partial<Transaction>
+): ITransaction => ({
   id: 1,
-  account: "example name",
+  account: 'example name',
   amount: 12.3,
   date: new Date(),
-  ...overwrites,
+  ...overwrites
 });
