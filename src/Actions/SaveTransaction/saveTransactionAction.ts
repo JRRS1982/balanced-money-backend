@@ -1,5 +1,5 @@
-import { ITransaction, Transaction } from "Entities";
-import { saveTransaction } from "Repositories/Transaction";
+import { ITransaction, Transaction } from '../../Entities';
+import { saveTransaction } from '../../Repositories/Transaction/saveTransaction';
 
 export const saveTransactionAction = async (
   body: ITransaction

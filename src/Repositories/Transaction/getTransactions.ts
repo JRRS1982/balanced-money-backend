@@ -1,6 +1,6 @@
-import { ITransaction, Transaction } from "Entities";
-import { map } from "lodash";
-import { getManager } from "typeorm";
+import { ITransaction, Transaction } from '../../Entities';
+import { map } from 'lodash';
+import { getManager } from 'typeorm';
 
 const toTransactionEntity = ({
   id,

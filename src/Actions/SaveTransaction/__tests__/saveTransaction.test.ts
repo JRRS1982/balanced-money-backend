@@ -1,8 +1,9 @@
-import { baseConfig } from "Configs/ormconfig";
-import { ITransaction } from "Entities";
-import { getTransactions, saveTransaction } from "Repositories/Transaction";
-import { Connection, createConnection } from "typeorm";
-import { transaction } from "Actions/__mocks__/transaction.mock";
+import { baseConfig } from '../../../Configs/ormconfig';
+import { ITransaction } from '../../../Entities';
+import { getTransactions } from '../../../Repositories/Transaction/getTransactions';
+import { Connection, createConnection } from 'typeorm';
+import { transaction } from '../../../Actions/__mocks__/transaction.mock';
+import { saveTransaction } from 'Repositories/Transaction/saveTransaction';
 
 describe('saveTransactions', () => {
   let connection: Connection;

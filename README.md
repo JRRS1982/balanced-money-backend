@@ -24,7 +24,7 @@ TODO: add production endpoint
 * [typeorm](https://github.com/typeorm/typeorm): to help interactions with the db
 * reflect-metadata: to work with TS decorators, required if using typeorm
 * typescript: adding types to make JS safer
-* ts-node: to run the server is a development environment
+* ts-node: to compile and run the code without need of pre-compilation with tsc
 * nodemon: to restart the server when changes are made to the code - a config was created at root level
 * mysql: the database
 * [babel](https://jestjs.io/docs/getting-started#using-babel): Jest requires babel for transpiling modern JS
@@ -77,3 +77,11 @@ GRANT ALL PRIVILEGES ON balanced_money. * TO 'balancedMoney'@'localhost';
 * LogRocket: Building a GraphQl API [here](https://blog.logrocket.com/build-graphql-typegraphql-typeorm/)
 * Pedro's Video on TS, GraphQl, MySql, TypeOrm [here](https://www.youtube.com/watch?v=fov5e6XJgwc)
 * Prettier, ESLint Install Guide: [here](https://khalilstemmler.com/blogs/tooling/prettier/)
+* Nodemon and TS: [here](https://blog.logrocket.com/configuring-nodemon-with-typescript/)
+* Install MariaDb on Ubuntu i.e. the Digital Ocean VPS instance [here](https://www.digitalocean.com/community/tutorials/how-to-install-mariadb-on-ubuntu-20-04)
+
+### Notes / Learning
+
+* tsconfig-paths: tsc will not compile the TS to JS cleanly - some of the paths are not being compiled - which means running node on the js causes paths to be undefined. Would like tidy path names so I would like to return to this later
+* typegraph-orm: doesn't seem to work with Entities which are exported from an index file, again, would like to have clean imports so may return to this later - could be that i am exporting named exports instead of default, but I wish to get a MVP done then return to tidy up later.
+* TODO: I currently have a digital ocean vps which I am hoping to add the database, server and front end on - I believe that this is the cheapest way to do it and as they are in the same vps will have low latency between requests/responses. Will need to add the database (mariadb / mysql) and go from there. ssh into the vps and run commands at root when the time comes - also can enter vps via DO console

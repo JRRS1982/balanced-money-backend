@@ -1,5 +1,5 @@
-import { ITransaction, Transaction } from "Entities";
-import { getManager } from "typeorm";
+import { ITransaction, Transaction } from '../../Entities';
+import { getManager } from 'typeorm';
 
 const toTransactionEntity = ({
   id,

@@ -1,4 +1,4 @@
-import { ConnectionOptions } from "typeorm";
+import { ConnectionOptions } from 'typeorm';
 
 // TODO: add dotenv and import config via env files
 export const baseConfig: ConnectionOptions = {
@@ -9,12 +9,10 @@ export const baseConfig: ConnectionOptions = {
   username: 'balancedMoney',
   password: '12345',
   database: 'balanced_money',
-  entities: [
-    __dirname + '/../**/**.entity.ts' // map entities to typeorm
-  ],
-  migrations: ['src/migrations/*.ts'],
+  entities: ['dist/Entities/**/**.entity.js'], // match entities to typeorm
+  migrations: ['dist/Migrations/*.js'],
   cli: {
-    entitiesDir: 'src/entities',
-    migrationsDir: 'src/migrations'
+    entitiesDir: 'dist/Entities/**/*.js',
+    migrationsDir: 'src/Migrations'
   }
 };

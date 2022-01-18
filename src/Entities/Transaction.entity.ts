@@ -1,5 +1,5 @@
-import { Field, ID, ObjectType } from "type-graphql";
-import { BaseEntity, Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Field, ID, ObjectType } from 'type-graphql';
+import { BaseEntity, Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
 /**
  * TypeGraphQL automatically creates a GraphQL schema from TS classes, which helps avoid the need to create a schema definition file and interfaces describing the schema https://typegraphql.com/docs/0.17.0/types-and-fields.html

@@ -1,6 +1,6 @@
-import { Transaction } from "Entities";
-import { DeepPartial, getConnection } from "typeorm";
-import { transaction as transactionMock } from "../__mocks__/transaction.mock";
+import { Transaction } from '../../Entities';
+import { DeepPartial, getConnection } from 'typeorm';
+import { transaction as transactionMock } from '../__mocks__/transaction.mock';
 
 const defaults = transactionMock();
 
