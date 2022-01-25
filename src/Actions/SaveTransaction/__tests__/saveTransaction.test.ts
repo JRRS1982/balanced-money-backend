@@ -1,9 +1,9 @@
 import { baseConfig } from '../../../Configs/ormconfig';
-import { ITransaction } from '../../../Entities';
+import { ITransaction } from '../../../Entities/ITransaction';
 import { getTransactions } from '../../../Repositories/Transaction/getTransactions';
 import { Connection, createConnection } from 'typeorm';
 import { transaction } from '../../../Actions/__mocks__/transaction.mock';
-import { saveTransaction } from 'Repositories/Transaction/saveTransaction';
+import { saveTransactionAction } from '../../SaveTransaction/saveTransactionAction';
 
 describe('saveTransactions', () => {
   let connection: Connection;
@@ -22,9 +22,13 @@ describe('saveTransactions', () => {
   });
 
   it('should successfully save a transaction', async () => {
-    await saveTransaction(transactionMock);
-    const after = await getTransactions();
+    await saveTransactionAction(transactionMock);
+    const result = await getTransactions();
 
-    expect(after.length).toEqual(1);
+    expect(result[0].id).toEqual(transactionMock.id);
+    expect(result[0].account).toEqual(transactionMock.account);
+    expect(result[0].amount).toEqual(transactionMock.amount);
+    expect(result[0].date).toEqual(transactionMock.date);
+    expect(result.length).toEqual(1);
   });
 });

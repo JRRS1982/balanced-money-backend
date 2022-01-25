@@ -79,6 +79,7 @@ GRANT ALL PRIVILEGES ON balanced_money. * TO 'balancedMoney'@'localhost';
 * Prettier, ESLint Install Guide: [here](https://khalilstemmler.com/blogs/tooling/prettier/)
 * Nodemon and TS: [here](https://blog.logrocket.com/configuring-nodemon-with-typescript/)
 * Install MariaDb on Ubuntu i.e. the Digital Ocean VPS instance [here](https://www.digitalocean.com/community/tutorials/how-to-install-mariadb-on-ubuntu-20-04)
+* TS, Typeorm, CRUD: Simple article [here](https://codetain.com/blog/implementing-server-side-crud-with-typescript-typeorm-and-graphql)
 
 ### Notes / Learning
 
