@@ -1,7 +1,7 @@
 {
   "name": "balanced-money-backend",
   "version": "1.0.0",
-  "description": "",
+  "description": "backend of the balanced-money application",
   "main": "dist/index",
   "scripts": {
     "build": "rimraf ./dist && tsc",
@@ -21,8 +21,8 @@
     "type": "git",
     "url": "git+https://github.com/JRRS1982/balanced-money-backend.git"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["graphql", "typescript", "nodejs", "typeorm"],
+  "author": "JRRS1982",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/JRRS1982/balanced-money-backend/issues"

@@ -1,4 +1,5 @@
-import { ITransaction, Transaction } from '../../Entities';
+import { ITransaction } from '../../Entities/ITransaction';
+import { Transaction } from '../../Entities/Transaction.entity';
 import { getManager } from 'typeorm';
 
 const toTransactionEntity = ({
@@ -14,17 +15,11 @@ const toTransactionEntity = ({
 });
 
 // TODO add more where clauses i.e. account, amount, date etc
-export const getTransaction = async ({
-  id
-}: ITransaction): Promise<ITransaction | undefined> => {
+export const getTransaction = async (id: number): Promise<ITransaction> => {
   const transaction = await getManager()
     .createQueryBuilder(Transaction, 'transaction')
     .where('transaction.id = :id', { id })
-    .getOne();
+    .getOneOrFail(); // should only be called with an id which exists.
 
-  if (transaction !== undefined) {
-    return toTransactionEntity(transaction);
-  }
-
-  return undefined;
+  return toTransactionEntity(transaction);
 };
