@@ -25,13 +25,13 @@ class SaveTransactionArgs {
  */
 @ArgsType()
 class UpdateTransactionArgs {
-  @Field()
+  @Field(() => Number)
   id: number;
 
-  @Field()
+  @Field(() => String)
   field: UpdateOptions;
 
-  @Field()
+  @Field(() => String)
   value: string;
 }
 
@@ -53,5 +53,5 @@ export class TransactionResolver {
   ): Promise<Transaction> {
     return updateTransactionAction(updateArgs);
   }
-  // TODO add delete mutationimport { ITransaction } from '../../Entities/ITransaction';
+  // TODO add delete mutation import { ITransaction } from '../../Entities/ITransaction';
 }

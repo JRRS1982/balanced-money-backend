@@ -1,18 +1,15 @@
-import { baseConfig } from '../../../Configs/ormconfig';
-import { ITransaction } from '../../../Entities/ITransaction';
+import { baseConfig } from '../../../Configs';
 import { getTransactions } from '../../../Repositories/Transaction/getTransactions';
 import { Connection, createConnection } from 'typeorm';
-import { transaction } from '../../../Actions/__mocks__/transaction.mock';
-import { saveTransactionAction } from '../../SaveTransaction/saveTransactionAction';
+import createTransactionRecord from '../../__helpers__/createTransactionRecord.factory';
+import { transactionMock } from '../../__mocks__/transaction.mock';
 
-describe('saveTransactions', () => {
+describe('getTransactionsAction', () => {
   let connection: Connection;
-  let transactionMock: ITransaction;
 
   beforeEach(async () => {
     connection = await createConnection(baseConfig);
     await connection.runMigrations();
-    transactionMock = transaction();
   });
 
   afterEach(async () => {
@@ -21,8 +18,8 @@ describe('saveTransactions', () => {
     jest.resetAllMocks;
   });
 
-  it('should successfully save a transaction', async () => {
-    await saveTransactionAction(transactionMock);
+  it('should successfully return all transactions', async () => {
+    await createTransactionRecord();
     const result = await getTransactions();
 
     expect(result[0].id).toEqual(transactionMock.id);

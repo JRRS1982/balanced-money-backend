@@ -11,6 +11,7 @@ A GraphQl API for data persistance of the balanced-money application
 * Install packages with `npm install`
 * Start the server with `npm start`
 * Visit [http://localhost:4000/](http://localhost:4000/) to find the server running
+* Send a graphql query to [http://localhost:4000/graphql](http://localhost:4000/graphql)
 
 ### In Production
 
@@ -44,12 +45,12 @@ TODO: add production endpoint
 
 ## Queries / Mutations
 
-TODO: add how to make a query / mutation to this application
+TODO: add how to make a query / mutation to this application in prod
 
 Within the Apollo GraphQl explorer check the schema and run queries such as:
 
 ```graphql
-query Query {
+query Transactions {
   transactions {
     id
     account
@@ -57,6 +58,34 @@ query Query {
     date
   }
 }
+
+mutation Transactions(
+  $saveTransactionId: Float!, 
+  $account: String!, 
+  $amount: Float!, 
+  $date: DateTime!) 
+{
+  saveTransaction(
+    id: $saveTransactionId, 
+    account: $account, 
+    amount: $amount, 
+    date: $date) 
+  {
+   id
+   amount
+   date
+   account 
+  }
+}
+
+// variables
+{
+  "saveTransactionId": 222,
+  "account": "222",
+  "amount": 11,
+  "date": "2022-01-02 14:53:12.878"
+}
+
 ```
 
 ## MySql

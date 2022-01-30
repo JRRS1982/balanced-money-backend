@@ -6,7 +6,7 @@ import { IUpdateInput, UpdateOptions } from '../updateTransactionAction';
 import { updateTransactionAction } from '../updateTransactionAction';
 import createTransactionRecord from '../../__helpers__/createTransactionRecord.factory';
 
-describe('updateTransaction', () => {
+describe('updateTransactionAction', () => {
   let connection: Connection;
   let mockTransactionUpdate: IUpdateInput;
 

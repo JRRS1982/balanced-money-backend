@@ -1,4 +1,4 @@
-import { Field, ID, ObjectType } from 'type-graphql';
+import { Field, ObjectType } from 'type-graphql';
 import { BaseEntity, Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
 export class ColumnNumericTransformer {
@@ -16,7 +16,7 @@ export class ColumnNumericTransformer {
 @Entity()
 @ObjectType()
 export class Transaction extends BaseEntity {
-  @Field(() => ID)
+  @Field(() => Number)
   @PrimaryGeneratedColumn()
   id: number;
 
