@@ -1,13 +1,8 @@
+import { ITransaction } from 'Entities/ITransaction';
 import { Transaction } from '../../Entities/Transaction.entity';
 
-export interface ISaveInput {
-  account: string;
-  amount: number;
-  date: Date;
-}
-
-export const saveTransaction = async (
-  transaction: ISaveInput
+export const updateTransaction = async (
+  transaction: ITransaction
 ): Promise<Transaction> => {
   const transactionEntity = Transaction.create(transaction);
   await Transaction.save(transactionEntity);

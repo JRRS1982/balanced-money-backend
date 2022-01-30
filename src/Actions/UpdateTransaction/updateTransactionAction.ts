@@ -1,6 +1,6 @@
-import { getTransaction } from '../../Repositories/Transaction/getTransaction';
 import { Transaction } from '../../Entities/Transaction.entity';
-import { saveTransaction } from '../../Repositories/Transaction/saveTransaction';
+import { getTransaction } from '../../Repositories/Transaction/getTransaction';
+import { updateTransaction } from '../../Repositories/Transaction/updateTransaction';
 
 /**
  * Transaction properties that we can update - don't want to update the index of the transaction, but other options... we may want to update.
@@ -38,5 +38,5 @@ export const updateTransactionAction = async (
       break;
   }
 
-  return await saveTransaction(transaction);
+  return await updateTransaction(transaction);
 };

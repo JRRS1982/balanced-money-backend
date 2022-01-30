@@ -1,5 +1,6 @@
 import { getTransactionsAction } from '../Actions/GetTransactions';
 import { saveTransactionAction } from '../Actions/SaveTransaction';
+import { deleteTransactionAction } from '../Actions/DeleteTransaction';
 import { Transaction } from '../Entities/Transaction.entity';
 import { Args, ArgsType, Field, Mutation, Query, Resolver } from 'type-graphql';
 import { updateTransactionAction } from '../Actions/UpdateTransaction';
@@ -7,9 +8,6 @@ import { UpdateOptions } from '../Actions//UpdateTransaction/updateTransactionAc
 
 @ArgsType()
 class SaveTransactionArgs {
-  @Field()
-  id: number;
-
   @Field()
   account: string;
 
@@ -35,6 +33,12 @@ class UpdateTransactionArgs {
   value: string;
 }
 
+@ArgsType()
+class DeleteTransactionArgs {
+  @Field(() => Number)
+  id: number;
+}
+
 @Resolver() // a decorator - declare TransactionResolver as a Resolver for type-graphql
 export class TransactionResolver {
   @Query(() => [Transaction]) // a decorator - for transactions() - saying it is a a query and will return an array of Transaction
@@ -53,5 +57,11 @@ export class TransactionResolver {
   ): Promise<Transaction> {
     return updateTransactionAction(updateArgs);
   }
-  // TODO add delete mutation import { ITransaction } from '../../Entities/ITransaction';
+
+  @Mutation(() => Boolean)
+  deleteTransaction(
+    @Args() deleteArgs: DeleteTransactionArgs
+  ): Promise<boolean> {
+    return deleteTransactionAction(deleteArgs);
+  }
 }

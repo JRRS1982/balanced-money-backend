@@ -1,5 +1,5 @@
 import { baseConfig } from '../../../Configs';
-import { getTransactions } from '../../../Repositories/Transaction/getTransactions';
+import { getTransactionsAction } from '../../GetTransactions';
 import { Connection, createConnection } from 'typeorm';
 import createTransactionRecord from '../../__helpers__/createTransactionRecord.factory';
 import { transactionMock } from '../../__mocks__/transaction.mock';
@@ -20,7 +20,7 @@ describe('getTransactionsAction', () => {
 
   it('should successfully return all transactions', async () => {
     await createTransactionRecord();
-    const result = await getTransactions();
+    const result = await getTransactionsAction();
 
     expect(result[0].id).toEqual(transactionMock.id);
     expect(result[0].account).toEqual(transactionMock.account);
