@@ -41,7 +41,15 @@ TODO: add production endpoint
 
 ## Scripts
 
-* start: use nodemon to start the server and watch for changes in src file
+* start: delete dist, compile TS, then run index.js
+* dev: use of nodemon and ts-node to run index.ts
+* format:prettier: use a local prettier config to fix formatting
+* lint: use a local eslint config to alert code style issues
+* lint-fix: fix the style issues discovered by eslint
+* test: run jest test suite
+* test:coverage: run jest test suite and alert coverage report
+
+Also husky: pre-commit hook to run format and style fix scripts.
 
 ## Queries / Mutations
 
@@ -50,6 +58,8 @@ TODO: add how to make a query / mutation to this application in prod
 Within the Apollo GraphQl explorer check the schema and run queries such as:
 
 ```graphql
+
+// get all transactions
 query Transactions {
   transactions {
     id
@@ -59,6 +69,7 @@ query Transactions {
   }
 }
 
+// save a transaction
 mutation Transactions(
   $saveTransactionId: Float!, 
   $account: String!, 
@@ -66,10 +77,26 @@ mutation Transactions(
   $date: DateTime!) 
 {
   saveTransaction(
-    id: $saveTransactionId, 
     account: $account, 
     amount: $amount, 
     date: $date) 
+  {
+   amount
+   date
+   account 
+  }
+}
+
+// update a transaction
+mutation Transactions(
+  $id: Float!,
+  $field: String!,
+  $value: String!) 
+{
+  updateTransaction(
+    id: $id,
+    field: $field,  
+    value: $value) 
   {
    id
    amount
@@ -78,7 +105,12 @@ mutation Transactions(
   }
 }
 
-// variables
+// delete a transaction
+mutation DeleteTransaction($id: Float!) {
+  deleteTransaction(id: $id)
+}
+
+// example variables
 {
   "saveTransactionId": 222,
   "account": "222",
@@ -97,6 +129,10 @@ CREATE DATABASE balanced_money;
 CREATE USER 'balancedMoney'@'localhost' IDENTIFIED BY '<password>';
 GRANT ALL PRIVILEGES ON balanced_money. * TO 'balancedMoney'@'localhost';
 ```
+
+## Acceptance Criteria / Future Development
+
+I am documenting current status and future plans in the AC, now saved in the repository, found here: [docs/AC.md](docs/AC.md)
 
 ### Credits / Useful Resources
 

@@ -10,11 +10,12 @@
     "format:prettier": "prettier --config .prettierrc 'src/**/*.ts' --write",
     "lint": "eslint . --ext .ts",
     "lint:fix": "eslint . --ext .ts --fix",
-    "test": "jest --runInBand"
+    "test": "jest --runInBand",
+    "test:coverage": "npx jest --coverage"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run prettier:lint && npm run lint"
+      "pre-commit": "npm run format:prettier && npm run lint"
     }
   },
   "repository": {

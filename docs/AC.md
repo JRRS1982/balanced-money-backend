@@ -5,14 +5,14 @@ CRUD
 - [x] Can add a transaction via a gql request
 - [x] Can update a transaction via a gql request
 - [x] Can read all transactions via a gql request
-- [ ] Can delete a transaction via a gql request
+- [x] Can delete a transaction via a gql request
 
 ---
 
 Style / formatting / quality
 
-- [ ] The application has a consistent style / formatting tools to assist future development
-- [ ] Code is covered by unit and feature tests
+- [x] The application has a consistent style / formatting tools to assist future development
+- [x] Code is covered by unit and feature tests
 - [ ] A comprehensive Readme / Documentation file exists
 
 ---
