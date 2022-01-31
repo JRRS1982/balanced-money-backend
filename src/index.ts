@@ -1,4 +1,5 @@
 import 'reflect-metadata';
+import 'dotenv/config';
 import { ApolloServer } from 'apollo-server';
 import { baseConfig } from './Configs';
 import { HelloWorldResolver } from './Resolvers/HelloWorldResolver';
@@ -9,7 +10,7 @@ import { createConnection } from 'typeorm';
 async function main() {
   await createConnection(baseConfig);
   // TODO: add port to env file
-  const port = 4000;
+  const port = process.env.PORT;
 
   /**
    * use type-graphql to build a schema
