@@ -22,7 +22,12 @@
     "type": "git",
     "url": "git+https://github.com/JRRS1982/balanced-money-backend.git"
   },
-  "keywords": ["graphql", "typescript", "nodejs", "typeorm"],
+  "keywords": [
+    "graphql",
+    "typescript",
+    "nodejs",
+    "typeorm"
+  ],
   "author": "JRRS1982",
   "license": "ISC",
   "bugs": {
@@ -52,6 +57,7 @@
     "@typescript-eslint/eslint-plugin": "^5.9.1",
     "@typescript-eslint/parser": "^5.9.1",
     "babel-jest": "^27.4.5",
+    "dotenv": "^15.0.0",
     "eslint": "^8.6.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-jest": "^25.3.4",
