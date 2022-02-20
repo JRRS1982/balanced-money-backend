@@ -9,13 +9,8 @@ import { createConnection } from 'typeorm';
 
 async function main() {
   await createConnection(baseConfig);
-  // TODO: add port to env file
-  const port = process.env.PORT;
+  const port = process.env.NODE_DOCKER_PORT;
 
-  /**
-   * use type-graphql to build a schema
-   * - declare / add the resolvers to the schema
-   */
   const schema = await buildSchema({
     resolvers: [HelloWorldResolver, TransactionResolver]
   });

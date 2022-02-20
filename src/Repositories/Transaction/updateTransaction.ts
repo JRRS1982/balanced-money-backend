@@ -1,4 +1,4 @@
-import { ITransaction } from 'Entities/ITransaction';
+import { ITransaction } from '../../Entities/ITransaction';
 import { Transaction } from '../../Entities/Transaction.entity';
 
 export const updateTransaction = async (
