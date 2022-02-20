@@ -1,0 +1,12 @@
+# Keep the docker image as small as possible to reduce the amount that is saved to the docker registry and thus needs to be downloaded
+node_modules
+Dockerfile*
+docker-compose*
+.dockerignore
+.git
+.gitignore
+README.md
+LICENCE
+.vscode
+coverage
+db
