@@ -1,7 +1,5 @@
 ############### Stage 1 - build the project
-
-# use alpine version of node to keep the image size as possible
-
+# use alpine version of node to keep the image size small as possible
 FROM node:16-alpine AS build
 
 # node docs recommend this
@@ -16,7 +14,6 @@ RUN npm run build
 # TODO not sure about the stages - can i have a test / dev stage so test / dev is run in docker too.
 
 ############### Stage 2 - run the project
-
 FROM build AS prod
 EXPOSE 4000
 # from stage 1, i.e. build take the code in the dist / package.json and copy to the container

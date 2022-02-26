@@ -6,6 +6,11 @@ A GraphQl API for data persistance of the balanced-money application
 
 ### In Development
 
+```shell
+// currently running this will start the service and make the dockerised api available.
+docker-compose up --build
+```
+
 * Update baseConfig to the database of choice.
 * Make sure you have a SQL server running - locally you may need to start it with `systemctl start mariadb` if using mariadb
 * Install packages with `npm install`
@@ -145,9 +150,12 @@ I am documenting current status and future plans in the AC, now saved in the rep
 * Nodemon and TS: [here](https://blog.logrocket.com/configuring-nodemon-with-typescript/)
 * Install MariaDb on Ubuntu i.e. the Digital Ocean VPS instance [here](https://www.digitalocean.com/community/tutorials/how-to-install-mariadb-on-ubuntu-20-04)
 * TS, Typeorm, CRUD: Simple article [here](https://codetain.com/blog/implementing-server-side-crud-with-typescript-typeorm-and-graphql)
+* Docker: [here](https://github.com/testjavascript/almost-perfect-dockerfile/blob/master/Dockerfile)
 
 ### Notes / Learning
 
 * tsconfig-paths: tsc will not compile the TS to JS cleanly - some of the paths are not being compiled - which means running node on the js causes paths to be undefined. Would like tidy path names so I would like to return to this later
 * typegraph-orm: doesn't seem to work with Entities which are exported from an index file, again, would like to have clean imports so may return to this later - could be that i am exporting named exports instead of default, but I wish to get a MVP done then return to tidy up later.
+
+* Docker: I trawled the web for different setups and played with many commands to get Docker working i found roughly what i needed, and with tonnes of tweaking I have a containerised application! This has been the hardest step of this project so far. Still need to add services for test and maybe staging environments - or investigate that in more detail.
 * TODO: I currently have a digital ocean vps which I am hoping to add the database, server and front end on - I believe that this is the cheapest way to do it and as they are in the same vps will have low latency between requests/responses. Will need to add the database (mariadb / mysql) and go from there. ssh into the vps and run commands at root when the time comes - also can enter vps via DO console
