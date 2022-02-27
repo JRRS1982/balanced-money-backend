@@ -7,12 +7,12 @@ import { saveTransactionAction } from '../saveTransactionAction';
 
 describe('saveTransactionAction', () => {
   let connection: Connection;
-  let transactionMock: ITransaction;
+  let mockTransaction: ITransaction;
 
   beforeEach(async () => {
     connection = await createConnection(baseConfig);
     await connection.runMigrations();
-    transactionMock = transaction();
+    mockTransaction = transaction();
   });
 
   afterEach(async () => {
@@ -22,13 +22,34 @@ describe('saveTransactionAction', () => {
   });
 
   it('should successfully save a transaction', async () => {
-    await saveTransactionAction(transactionMock);
+    await saveTransactionAction(mockTransaction);
     const result = await getTransactions();
 
-    expect(result[0].id).toEqual(transactionMock.id);
-    expect(result[0].account).toEqual(transactionMock.account);
-    expect(result[0].amount).toEqual(transactionMock.amount);
-    expect(result[0].date).toEqual(transactionMock.date);
+    expect(result[0].id).toEqual(mockTransaction.id);
+    expect(result[0].account).toEqual(mockTransaction.account);
+    expect(result[0].amount).toEqual(mockTransaction.amount);
+    expect(result[0].date).toEqual(mockTransaction.date);
     expect(result.length).toEqual(1);
+  });
+
+  it('should not save a transaction which has a missing account', async () => {
+    const mockTransactionNoAccount = transaction({ account: undefined });
+    await saveTransactionAction(mockTransactionNoAccount);
+    const result = await getTransactions();
+    expect(result).toEqual([]);
+  });
+
+  it('should not save a transaction which has a missing amount', async () => {
+    const mockTransactionNoAmount = transaction({ amount: undefined });
+    await saveTransactionAction(mockTransactionNoAmount);
+    const result = await getTransactions();
+    expect(result).toEqual([]);
+  });
+
+  it('should not save a transaction which has a missing date', async () => {
+    const mockTransactionNoDate = transaction({ date: undefined });
+    await saveTransactionAction(mockTransactionNoDate);
+    const result = await getTransactions();
+    expect(result).toEqual([]);
   });
 });

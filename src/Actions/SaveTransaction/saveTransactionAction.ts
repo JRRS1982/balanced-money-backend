@@ -1,3 +1,4 @@
+import { isDate, isNumber, isString } from 'lodash';
 import { Transaction } from '../../Entities/Transaction.entity';
 import { saveTransaction } from '../../Repositories/Transaction/saveTransaction';
 
@@ -7,11 +8,18 @@ export interface ISaveInput {
   date: Date;
 }
 
+const isValid = (body: ISaveInput): boolean => {
+  return isString(body.account) && isNumber(body.amount) && isDate(body.date);
+};
+
 export const saveTransactionAction = async (
   body: ISaveInput
-): Promise<Transaction> => {
-  // TODO: Add some validation to the request to this backend, will need headers and body on the request to validation that only the transactions for the current user are updated
+): Promise<Transaction | undefined> => {
   const { account, amount, date } = body;
+
+  if (!isValid(body)) {
+    return;
+  }
 
   return await saveTransaction({ account, amount, date });
 };
