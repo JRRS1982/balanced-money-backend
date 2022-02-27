@@ -1,6 +1,6 @@
-import { Transaction } from '../../Entities/Transaction.entity';
+import { Transaction } from 'Entities';
 import { DeepPartial, getConnection } from 'typeorm';
-import { transactionMock } from '../__mocks__/transaction.mock';
+import { transactionMock } from './transaction.mock';
 
 const createTransactionRecord = async (
   overwrites?: DeepPartial<Transaction>

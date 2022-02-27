@@ -1,6 +1,6 @@
 import { isDate, isNumber, isString } from 'lodash';
-import { Transaction } from '../../Entities/Transaction.entity';
-import { saveTransaction } from '../../Repositories/Transaction/saveTransaction';
+import { Transaction } from 'Entities';
+import { saveTransaction } from 'Repositories/Transaction';
 
 export interface ISaveInput {
   account: string;

@@ -1,4 +1,4 @@
-import { deleteTransaction } from '../../Repositories/Transaction/deleteTransaction';
+import { deleteTransaction } from 'Repositories/Transaction';
 
 interface IDeleteInput {
   id: number;
