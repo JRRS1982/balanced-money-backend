@@ -1,10 +1,12 @@
-import { getTransactionsAction } from '../Actions/GetTransactions';
-import { saveTransactionAction } from '../Actions/SaveTransaction';
-import { deleteTransactionAction } from '../Actions/DeleteTransaction';
-import { Transaction } from '../Entities/Transaction.entity';
+import {
+  deleteTransactionAction,
+  saveTransactionAction,
+  getTransactionsAction,
+  updateTransactionAction
+} from 'Actions';
+import { Transaction } from 'Entities';
 import { Args, ArgsType, Field, Mutation, Query, Resolver } from 'type-graphql';
-import { updateTransactionAction } from '../Actions/UpdateTransaction';
-import { UpdateOptions } from '../Actions//UpdateTransaction/updateTransactionAction';
+import { UpdateOptions } from 'Actions/UpdateTransaction/updateTransactionAction';
 
 @ArgsType()
 class SaveTransactionArgs {
@@ -19,7 +21,7 @@ class SaveTransactionArgs {
 }
 
 /**
- * Should be the transaction id, with the field that is going to be updated with the value which will be applied to that field.
+ * @UpdateTransactionArgs will need the id of the transaction, the new value and which field is being updated
  */
 @ArgsType()
 class UpdateTransactionArgs {
@@ -39,22 +41,29 @@ class DeleteTransactionArgs {
   id: number;
 }
 
-@Resolver() // a decorator - declare TransactionResolver as a Resolver for type-graphql
+/**
+ * @Resolver is a decorator for type-graphql, is declares TransactionResolver as a graphql resolver
+ *
+ * @Query and @Mutation are other decorators - declaring what the following function does
+ */
+@Resolver()
 export class TransactionResolver {
-  @Query(() => [Transaction]) // a decorator - for transactions() - saying it is a a query and will return an array of Transaction
+  @Query(() => [Transaction])
   transactions() {
     return getTransactionsAction();
   }
 
   @Mutation(() => Transaction)
-  saveTransaction(@Args() saveArgs: SaveTransactionArgs): Promise<Transaction> {
+  saveTransaction(
+    @Args() saveArgs: SaveTransactionArgs
+  ): Promise<Transaction | undefined> {
     return saveTransactionAction(saveArgs);
   }
 
   @Mutation(() => Transaction)
   updateTransaction(
     @Args() updateArgs: UpdateTransactionArgs
-  ): Promise<Transaction> {
+  ): Promise<Transaction | undefined> {
     return updateTransactionAction(updateArgs);
   }
 
