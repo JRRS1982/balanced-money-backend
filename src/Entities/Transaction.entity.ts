@@ -1,6 +1,13 @@
 import { Field, ObjectType } from 'type-graphql';
 import { BaseEntity, Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
+export interface ITransaction {
+  id: number;
+  account: string;
+  amount: number;
+  date: Date;
+}
+
 export class ColumnNumericTransformer {
   to(data: number): number {
     return data;
@@ -38,6 +45,6 @@ export class Transaction extends BaseEntity {
   amount: number;
 
   @Field(() => Date)
-  @Column({ name: 'date', type: 'timestamp', precision: 3 }) // need precision for microseconds in Date()
+  @Column({ name: 'date', type: 'timestamp', precision: 3 }) // precision to microseconds in date
   date: Date;
 }

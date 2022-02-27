@@ -12,7 +12,7 @@ export const baseConfig: ConnectionOptions = {
   entities: [
     path.join(__dirname, '..', 'Entities', '**', '*.*'),
     path.join(__dirname, '..', 'Entities', '*.*')
-  ], // match entities to typeorm
+  ],
   migrations: [path.join(__dirname, '..', 'migrations', '*.*')],
   cli: {
     entitiesDir: path.join(__dirname, '..', 'Entities'),
