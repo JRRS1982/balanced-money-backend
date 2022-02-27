@@ -1,4 +1,4 @@
-import { Transaction } from '../../Entities/Transaction.entity';
+import { Transaction } from 'Entities';
 import { DeleteResult, getManager } from 'typeorm';
 
 export const deleteTransaction = async (id: number): Promise<DeleteResult> => {
