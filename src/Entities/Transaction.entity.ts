@@ -55,6 +55,11 @@ export class Transaction extends BaseEntity {
   @Column({ name: 'date', type: 'timestamp', precision: 3 }) // precision to microseconds in date
   date: Date;
 
+  // TODO add a relation to the User - i.e. one owner for many transactions
+  // @Field()
+  // @ManyToOne(() => User, (user) => user.transactions)
+  // creator: User;
+
   @Field(() => String)
   @CreateDateColumn()
   createdAt: Date;

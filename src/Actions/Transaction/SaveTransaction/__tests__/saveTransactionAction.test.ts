@@ -2,7 +2,7 @@ import { baseConfig } from 'Configs/ormconfig';
 import { ITransaction } from 'Entities/Transaction.entity';
 import { getTransactions } from 'Repositories/Transaction/getTransactions';
 import { Connection, createConnection } from 'typeorm';
-import { transaction } from 'Actions/__mocks__/transaction.mock';
+import { transaction } from 'Actions/Transaction/__mocks__/transaction.mock';
 import { saveTransactionAction } from '../saveTransactionAction';
 
 describe('saveTransactionAction', () => {
