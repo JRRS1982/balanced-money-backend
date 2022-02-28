@@ -1,5 +1,12 @@
 import { Field, ObjectType } from 'type-graphql';
-import { BaseEntity, Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import {
+  BaseEntity,
+  Column,
+  CreateDateColumn,
+  Entity,
+  PrimaryGeneratedColumn,
+  UpdateDateColumn
+} from 'typeorm';
 
 export interface ITransaction {
   id: number;
@@ -47,4 +54,12 @@ export class Transaction extends BaseEntity {
   @Field(() => Date)
   @Column({ name: 'date', type: 'timestamp', precision: 3 }) // precision to microseconds in date
   date: Date;
+
+  @Field(() => String)
+  @CreateDateColumn()
+  createdAt: Date;
+
+  @Field(() => String)
+  @UpdateDateColumn()
+  updatedAt: Date;
 }
