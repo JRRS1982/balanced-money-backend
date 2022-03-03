@@ -1,4 +1,4 @@
-import { Transaction, ITransaction } from 'Entities/Transaction.entity';
+import { ITransaction, Transaction } from 'Entities';
 import { map } from 'lodash';
 import { getManager } from 'typeorm';
 

@@ -1,8 +1,8 @@
+import createTransactionRecord from 'Actions/Transaction/__mocks__/createTransactionRecord.factory';
 import { baseConfig } from 'Configs';
 import { getTransactions } from 'Repositories/Transaction';
 import { Connection, createConnection } from 'typeorm';
-import createTransactionRecord from 'Actions/Transaction/__mocks__/createTransactionRecord.factory';
-import { deleteTransactionAction } from '..';
+import { deleteTransactionAction } from '../';
 
 describe('deleteTransactionsAction', () => {
   let connection: Connection;

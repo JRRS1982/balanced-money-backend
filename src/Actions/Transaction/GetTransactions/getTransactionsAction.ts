@@ -1,4 +1,4 @@
-import { ITransaction } from 'Entities/Transaction.entity';
+import { ITransaction } from 'Entities';
 import { getTransactions } from 'Repositories/Transaction/getTransactions';
 
 export const getTransactionsAction = async (): Promise<ITransaction[]> => {

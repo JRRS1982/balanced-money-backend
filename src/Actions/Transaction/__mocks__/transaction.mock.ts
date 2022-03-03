@@ -1,4 +1,4 @@
-import { Transaction, ITransaction } from 'Entities/Transaction.entity';
+import { ITransaction, Transaction } from 'Entities';
 
 export const transaction = (
   overwrites?: Partial<Transaction>

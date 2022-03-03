@@ -1,35 +1,23 @@
+import { ColumnNumericTransformer } from 'Actions/__helpers__/columnNumericTransformer';
 import { Field, ObjectType } from 'type-graphql';
 import {
   BaseEntity,
   Column,
   CreateDateColumn,
   Entity,
+  JoinColumn,
+  ManyToOne,
   PrimaryGeneratedColumn,
   UpdateDateColumn
 } from 'typeorm';
-
-export interface ITransaction {
-  id: number;
-  account: string;
-  amount: number;
-  date: Date;
-}
-
-export class ColumnNumericTransformer {
-  to(data: number): number {
-    return data;
-  }
-  from(data: string): number {
-    return parseFloat(data);
-  }
-}
+import { ITransaction, IUser, User } from './';
 
 /**
  * TypeGraphQL automatically creates a GraphQL schema from TS classes, which helps avoid the need to create a schema definition file and interfaces describing the schema https://typegraphql.com/docs/0.17.0/types-and-fields.html
  */
 @Entity()
 @ObjectType()
-export class Transaction extends BaseEntity {
+export class Transaction extends BaseEntity implements ITransaction {
   @Field(() => Number)
   @PrimaryGeneratedColumn()
   id: number;
@@ -51,14 +39,14 @@ export class Transaction extends BaseEntity {
   })
   amount: number;
 
+  // TODO add currency so can handle multiple
   @Field(() => Date)
   @Column({ name: 'date', type: 'timestamp', precision: 3 }) // precision to microseconds in date
   date: Date;
 
-  // TODO add a relation to the User - i.e. one owner for many transactions
-  // @Field()
-  // @ManyToOne(() => User, (user) => user.transactions)
-  // creator: User;
+  @ManyToOne(() => User, (user) => user.transactions)
+  @JoinColumn({ name: 'transactions' }) // join on the User Table under transactions column
+  user: IUser;
 
   @Field(() => String)
   @CreateDateColumn()

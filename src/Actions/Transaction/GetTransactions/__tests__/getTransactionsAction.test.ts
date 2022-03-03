@@ -1,8 +1,8 @@
-import { baseConfig } from 'Configs';
-import { getTransactionsAction } from '..';
-import { Connection, createConnection } from 'typeorm';
 import createTransactionRecord from 'Actions/Transaction/__mocks__/createTransactionRecord.factory';
 import { transactionMock } from 'Actions/Transaction/__mocks__/transaction.mock';
+import { baseConfig } from 'Configs';
+import { Connection, createConnection } from 'typeorm';
+import { getTransactionsAction } from '../';
 
 describe('getTransactionsAction', () => {
   let connection: Connection;
