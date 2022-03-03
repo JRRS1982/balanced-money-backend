@@ -1,12 +1,7 @@
-import { User } from '../../Entities/User.entity';
+import { ISaveUserInput } from 'Actions/User/SaveUser/saveUserAction';
+import { IUser, User } from 'Entities';
 
-export interface ISaveInput {
-  email: string;
-  userName: string;
-  password: string;
-}
-
-export const saveUser = async (user: ISaveInput): Promise<User> => {
+export const saveUser = async (user: ISaveUserInput): Promise<IUser> => {
   const userEntity = User.create(user);
   await User.save(userEntity);
   return userEntity;
