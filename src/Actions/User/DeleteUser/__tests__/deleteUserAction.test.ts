@@ -1,8 +1,8 @@
-import createUserRecord from 'Actions/User/__mocks__/createUserRecord.factory';
-import { user } from 'Actions/User/__mocks__/user.mock';
-import { baseConfig } from 'Configs';
-import { IUser } from 'Entities';
-import { getUser } from 'Repositories/User';
+import createUserRecord from '../../../../Actions/User/__mocks__/createUserRecord.factory';
+import { user } from '../../../../Actions/User/__mocks__/user.mock';
+import { baseConfig } from '../../../../Configs';
+import { IUser } from '../../../../Entities';
+import { getUser } from '../../../../Repositories/User';
 import { Connection, createConnection } from 'typeorm';
 import { deleteUserAction } from '../';
 

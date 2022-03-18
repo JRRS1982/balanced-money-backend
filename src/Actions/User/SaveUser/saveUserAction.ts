@@ -1,6 +1,6 @@
-import { IUser } from 'Entities';
+import { IUser } from '../../../Entities';
 import { isString } from 'lodash';
-import { saveUser } from 'Repositories/User';
+import { saveUser } from '../../../Repositories/User';
 
 export interface ISaveUserInput {
   email: string;

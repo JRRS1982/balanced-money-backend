@@ -1,6 +1,11 @@
+import { IUser } from './IUser';
+
 export interface ITransaction {
-  id: number;
   account: string;
   amount: number;
+  createdAt: Date;
   date: Date;
+  id: number;
+  updatedAt: Date;
+  user: IUser;
 }

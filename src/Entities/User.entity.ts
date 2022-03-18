@@ -1,10 +1,10 @@
 import { Field, ObjectType } from 'type-graphql';
 import {
-  AfterLoad,
   BaseEntity,
   Column,
   CreateDateColumn,
   Entity,
+  JoinColumn,
   OneToMany,
   PrimaryGeneratedColumn,
   UpdateDateColumn
@@ -34,9 +34,9 @@ export class User extends BaseEntity implements IUser {
   @Column({ name: 'password', type: 'varchar', length: 255 })
   password: string;
 
-  // get transactions for this user
   @Field(() => [Transaction], { defaultValue: [] })
   @OneToMany(() => Transaction, (transaction) => transaction.user)
+  @JoinColumn({ name: 'transaction' }) // join on the User Table under transactions column
   transactions: Transaction[];
 
   @Field(() => String)
@@ -46,11 +46,4 @@ export class User extends BaseEntity implements IUser {
   @Field(() => String)
   @UpdateDateColumn()
   updatedAt: Date;
-
-  @AfterLoad() // a hook to set a value of transactions if there are none
-  async emptyCheck() {
-    if (!this.transactions) {
-      this.transactions = [];
-    }
-  }
 }

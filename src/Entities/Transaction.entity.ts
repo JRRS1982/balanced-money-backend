@@ -1,4 +1,4 @@
-import { ColumnNumericTransformer } from 'Actions/__helpers__/columnNumericTransformer';
+import { ColumnNumericTransformer } from '../Actions/__helpers__/columnNumericTransformer';
 import { Field, ObjectType } from 'type-graphql';
 import {
   BaseEntity,
@@ -10,11 +10,8 @@ import {
   PrimaryGeneratedColumn,
   UpdateDateColumn
 } from 'typeorm';
-import { ITransaction, IUser, User } from './';
+import { ITransaction, User } from './';
 
-/**
- * TypeGraphQL automatically creates a GraphQL schema from TS classes, which helps avoid the need to create a schema definition file and interfaces describing the schema https://typegraphql.com/docs/0.17.0/types-and-fields.html
- */
 @Entity()
 @ObjectType()
 export class Transaction extends BaseEntity implements ITransaction {
@@ -44,9 +41,10 @@ export class Transaction extends BaseEntity implements ITransaction {
   @Column({ name: 'date', type: 'timestamp', precision: 3 }) // precision to microseconds in date
   date: Date;
 
+  // TODO is this right - the docs say this is correct by DB doesn't look correct
   @ManyToOne(() => User, (user) => user.transactions)
-  @JoinColumn({ name: 'transactions' }) // join on the User Table under transactions column
-  user: IUser;
+  @JoinColumn({ name: 'user' })
+  user: User;
 
   @Field(() => String)
   @CreateDateColumn()

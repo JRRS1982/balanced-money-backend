@@ -1,4 +1,4 @@
-import { IUser, User } from 'Entities';
+import { IUser, User } from '../../Entities';
 import { getManager } from 'typeorm';
 
 export const toUserEntity = ({
@@ -16,7 +16,7 @@ export const toUserEntity = ({
   firstName,
   lastName,
   password,
-  transactions,
+  transactions: transactions ?? [],
   createdAt,
   updatedAt
 });

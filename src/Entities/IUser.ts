@@ -1,12 +1,12 @@
-import { Transaction } from './Transaction.entity';
+import { ITransaction } from './ITransaction';
 
 export interface IUser {
-  id: number;
+  createdAt: Date;
   email: string;
   firstName: string;
+  id: number;
   lastName: string;
   password: string;
-  transactions: Transaction[];
-  updatedAt?: Date;
-  createdAt?: Date;
+  transactions: ITransaction[];
+  updatedAt: Date;
 }

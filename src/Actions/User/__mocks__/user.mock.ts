@@ -1,14 +1,14 @@
-import { IUser } from 'Entities';
+import { IUser } from '../../../Entities';
 
 export const user = (overwrites?: Partial<IUser>): IUser => ({
-  id: 1,
+  createdAt: new Date(),
   email: 'example@gmail.com',
   firstName: 'bob',
+  id: 1,
   lastName: 'smith',
   password: 'need to hash this',
-  createdAt: new Date(),
-  updatedAt: new Date(),
   transactions: [],
+  updatedAt: new Date(),
   ...overwrites
 });
 

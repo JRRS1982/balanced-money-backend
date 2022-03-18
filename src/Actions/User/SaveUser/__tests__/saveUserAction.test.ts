@@ -1,7 +1,7 @@
-import { user } from 'Actions/User/__mocks__/user.mock';
-import { baseConfig } from 'Configs/ormconfig';
-import { IUser } from 'Entities';
-import { getUser } from 'Repositories/User';
+import { user } from '../../../../Actions/User/__mocks__/user.mock';
+import { baseConfig } from '../../../../Configs/ormconfig';
+import { IUser } from '../../../../Entities';
+import { getUser } from '../../../../Repositories/User';
 import { Connection, createConnection } from 'typeorm';
 import { saveUserAction } from '../saveUserAction';
 

@@ -1,5 +1,5 @@
-import { IUser } from 'Entities';
-import { getUser } from 'Repositories/User/getUser';
+import { IUser } from '../../../Entities';
+import { getUser } from '../../../Repositories/User/getUser';
 
 interface IGetUserInput {
   id: number;

@@ -1,4 +1,4 @@
-import { User } from 'Entities';
+import { User } from '../../Entities';
 import { DeleteResult, getManager } from 'typeorm';
 
 export const deleteUser = async (id: number): Promise<DeleteResult> => {

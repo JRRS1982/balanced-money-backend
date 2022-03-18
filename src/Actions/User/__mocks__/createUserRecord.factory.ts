@@ -1,4 +1,4 @@
-import { IUser, User } from 'Entities';
+import { IUser, User } from '../../../Entities';
 import { DeepPartial, getConnection } from 'typeorm';
 import { userMock } from './user.mock';
 

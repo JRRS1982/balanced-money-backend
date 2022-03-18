@@ -1,4 +1,4 @@
-import { IUser, User } from 'Entities';
+import { IUser, User } from '../../Entities';
 
 export const updateUser = async (transaction: IUser): Promise<User> => {
   const transactionEntity = User.create(transaction);

@@ -3,8 +3,8 @@ import {
   saveUserAction,
   updateUserAction,
   getUserAction
-} from 'Actions';
-import { IUser, User } from 'Entities';
+} from '../../Actions';
+import { IUser, User } from '../../Entities';
 import { Args, Mutation, Resolver } from 'type-graphql';
 import { DeleteUserArgs } from './DeleteUserArgs';
 import { GetUserArgs } from './GetUserArgs';

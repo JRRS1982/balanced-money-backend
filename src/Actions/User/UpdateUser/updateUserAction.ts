@@ -1,5 +1,5 @@
-import { IUser } from 'Entities';
-import { getUser, updateUser } from 'Repositories/User';
+import { IUser } from '../../../Entities';
+import { getUser, updateUser } from '../../../Repositories/User';
 
 // Properties of the user that we can / want to update
 export enum UpdateUserOptions {

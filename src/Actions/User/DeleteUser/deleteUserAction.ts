@@ -1,4 +1,4 @@
-import { deleteUser } from 'Repositories/User';
+import { deleteUser } from '../../../Repositories/User';
 
 interface IDeleteInput {
   id: number;
