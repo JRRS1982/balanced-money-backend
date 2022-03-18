@@ -1,16 +1,22 @@
-import { ITransaction, Transaction } from 'Entities';
+import { ITransaction, Transaction } from '../../Entities';
 import { getManager } from 'typeorm';
 
 const toTransactionEntity = ({
   id,
   account,
   amount,
-  date
+  date,
+  user,
+  createdAt,
+  updatedAt
 }: Transaction): ITransaction => ({
   id,
   account,
   amount,
-  date
+  date,
+  user,
+  createdAt,
+  updatedAt
 });
 
 // TODO add more where clauses i.e. account, amount, date etc

@@ -1,5 +1,8 @@
-import { Transaction } from 'Entities';
-import { getTransaction, updateTransaction } from 'Repositories/Transaction';
+import { Transaction } from '../../../Entities';
+import {
+  getTransaction,
+  updateTransaction
+} from '../../../Repositories/Transaction';
 
 // Properties of the transaction that we can / want to update
 export enum UpdateOptions {

@@ -1,7 +1,7 @@
-import { transaction } from 'Actions/Transaction/__mocks__/transaction.mock';
-import { baseConfig } from 'Configs/ormconfig';
-import { ITransaction } from 'Entities';
-import { getTransactions } from 'Repositories/Transaction/getTransactions';
+import { transaction } from '../../../../Actions/Transaction/__mocks__/transaction.mock';
+import { baseConfig } from '../../../../Configs/ormconfig';
+import { ITransaction } from '../../../../Entities';
+import { getTransactions } from '../../../../Repositories/Transaction/getTransactions';
 import { Connection, createConnection } from 'typeorm';
 import { saveTransactionAction } from '../saveTransactionAction';
 

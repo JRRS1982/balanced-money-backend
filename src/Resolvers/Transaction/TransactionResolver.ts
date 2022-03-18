@@ -1,7 +1,10 @@
 import {
-    deleteTransactionAction, getTransactionsAction, saveTransactionAction, updateTransactionAction,
-} from 'Actions';
-import { Transaction } from 'Entities';
+  deleteTransactionAction,
+  getTransactionsAction,
+  saveTransactionAction,
+  updateTransactionAction
+} from '../../Actions';
+import { Transaction } from '../../Entities';
 import { Args, Mutation, Query, Resolver } from 'type-graphql';
 import { DeleteTransactionArgs } from './DeleteTransactionArgs';
 import { SaveTransactionArgs } from './SaveTransactionArgs';

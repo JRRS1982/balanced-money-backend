@@ -1,6 +1,6 @@
-import createTransactionRecord from 'Actions/Transaction/__mocks__/createTransactionRecord.factory';
-import { baseConfig } from 'Configs';
-import { getTransactions } from 'Repositories/Transaction';
+import createTransactionRecord from '../../../../Actions/Transaction/__mocks__/createTransactionRecord.factory';
+import { baseConfig } from '../../../../Configs';
+import { getTransactions } from '../../../../Repositories/Transaction';
 import { Connection, createConnection } from 'typeorm';
 import { deleteTransactionAction } from '../';
 

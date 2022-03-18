@@ -1,4 +1,4 @@
-import { Transaction } from 'Entities';
+import { Transaction } from '../../Entities';
 
 export interface ISaveInput {
   account: string;

@@ -1,9 +1,13 @@
-import createTransactionRecord from 'Actions/Transaction/__mocks__/createTransactionRecord.factory';
-import { transactionUpdate } from 'Actions/Transaction/__mocks__/transactionUpdate.mock';
-import { baseConfig } from 'Configs/ormconfig';
-import { getTransactions } from 'Repositories/Transaction/getTransactions';
+import createTransactionRecord from '../../../../Actions/Transaction/__mocks__/createTransactionRecord.factory';
+import { transactionUpdate } from '../../../../Actions/Transaction/__mocks__/transactionUpdate.mock';
+import { baseConfig } from '../../../../Configs/ormconfig';
+import { getTransactions } from '../../../../Repositories/Transaction/getTransactions';
 import { Connection, createConnection } from 'typeorm';
-import { IUpdateInput, UpdateOptions, updateTransactionAction } from '../updateTransactionAction';
+import {
+  IUpdateInput,
+  UpdateOptions,
+  updateTransactionAction
+} from '../updateTransactionAction';
 
 describe('updateTransactionAction', () => {
   let connection: Connection;

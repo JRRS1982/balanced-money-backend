@@ -1,4 +1,4 @@
-import { UpdateOptions } from 'Actions/Transaction/UpdateTransaction/updateTransactionAction';
+import { UpdateOptions } from '../../Actions/Transaction/UpdateTransaction/updateTransactionAction';
 import { ArgsType, Field } from 'type-graphql';
 
 /**

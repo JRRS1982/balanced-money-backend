@@ -1,4 +1,5 @@
-import { ITransaction, Transaction } from 'Entities';
+import { ITransaction, Transaction } from '../../../Entities';
+import { userMock } from '../../User/__mocks__/user.mock';
 
 export const transaction = (
   overwrites?: Partial<Transaction>
@@ -7,6 +8,9 @@ export const transaction = (
   account: 'example name',
   amount: 410.1,
   date: new Date(),
+  user: userMock,
+  createdAt: new Date(),
+  updatedAt: new Date(),
   ...overwrites
 });
 

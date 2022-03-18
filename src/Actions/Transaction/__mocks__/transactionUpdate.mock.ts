@@ -1,4 +1,7 @@
-import { IUpdateInput, UpdateOptions } from '../UpdateTransaction/updateTransactionAction';
+import {
+  IUpdateInput,
+  UpdateOptions
+} from '../UpdateTransaction/updateTransactionAction';
 
 export const transactionUpdate = (
   overwrites?: Partial<IUpdateInput>
