@@ -1,6 +1,6 @@
 # balanced-money-backend
 
-A GraphQl API for data persistance of the balanced-money application
+A GraphQl API for data persistence of the balanced-money application
 
 ## Usage
 
@@ -43,15 +43,18 @@ TODO: add production endpoint
 * eslint-config-prettier: turn off eslint rules that may interfere with prettier rules
 * eslint-plugin-prettier: turn prettier rules into eslint rules
 * husky: hook into git to run commands such as format / lint prior to commit / push
+* [tscpaths](https://www.npmjs.com/package/tscpaths) tsconfig-paths is a more common solution to replacing relative paths with absolute paths, but tscpaths is faster and only requires a small addition to the build script. It's pre v1, so not suitable for a professional product. It's run at compile time and has no runtime dependencies. I reverted away from this in favour of the more reliable tsconfig-paths, and that had issues within the container so i removed that, also tried others, still on the todo list need to read this <https://github.com/jonkwheeler/tsconfig-replace-paths/issues/25>.
+* [express-jwt](https://github.com/auth0/express-jwt/blob/5fb8c88067b9448d746d04ab60ad3b1996c7e310/README.md#express-jwt) Express Middleware to validate JSON web tokens - may bring this in soon.
 
 ## Scripts
 
-* start: delete dist, compile TS, then run index.js
-* dev: use of nodemon and ts-node to run index.ts
+* build: delete dist and compile with tsc
+* start: set the env as production and run dist/index.js file i.e. the compiled code
+* dev: use of nodemon and ts-node to run index.ts after setting environment as dev and loading an env file
 * format:prettier: use a local prettier config to fix formatting
 * lint: use a local eslint config to alert code style issues
 * lint-fix: fix the style issues discovered by eslint
-* test: run jest test suite
+* test: run jest test suite - only works if node_modules have been generated - looking to build a test db/service later.
 * test:coverage: run jest test suite and alert coverage report
 
 Also husky: pre-commit hook to run format and style fix scripts.

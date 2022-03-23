@@ -6,7 +6,6 @@ const toTransactionEntity = ({
   account,
   amount,
   date,
-  user,
   createdAt,
   updatedAt
 }: Transaction): ITransaction => ({
@@ -14,7 +13,6 @@ const toTransactionEntity = ({
   account,
   amount,
   date,
-  user,
   createdAt,
   updatedAt
 });

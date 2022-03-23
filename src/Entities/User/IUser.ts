@@ -1,5 +1,3 @@
-import { ITransaction } from './ITransaction';
-
 export interface IUser {
   createdAt: Date;
   email: string;
@@ -7,6 +5,5 @@ export interface IUser {
   id: number;
   lastName: string;
   password: string;
-  transactions: ITransaction[];
   updatedAt: Date;
 }

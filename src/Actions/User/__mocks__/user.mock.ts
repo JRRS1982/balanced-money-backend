@@ -1,4 +1,4 @@
-import { IUser } from '../../../Entities';
+import { IUser } from '../../../Entities/User/IUser';
 
 export const user = (overwrites?: Partial<IUser>): IUser => ({
   createdAt: new Date(),
@@ -7,7 +7,6 @@ export const user = (overwrites?: Partial<IUser>): IUser => ({
   id: 1,
   lastName: 'smith',
   password: 'need to hash this',
-  transactions: [],
   updatedAt: new Date(),
   ...overwrites
 });

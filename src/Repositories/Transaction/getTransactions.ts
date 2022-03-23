@@ -7,7 +7,6 @@ const toTransactionEntity = ({
   account,
   amount,
   date,
-  user,
   createdAt,
   updatedAt
 }: Transaction): ITransaction => ({
@@ -15,16 +14,12 @@ const toTransactionEntity = ({
   account,
   amount,
   date,
-  user,
   createdAt,
   updatedAt
 });
 
 export const getTransactions = async (): Promise<ITransaction[]> => {
-  const query = await getManager().createQueryBuilder(
-    Transaction,
-    'transaction'
-  );
+  const query = getManager().createQueryBuilder(Transaction, 'transaction');
 
   return map(await query.getMany(), toTransactionEntity);
 };

@@ -23,7 +23,6 @@ describe('updateTransactionAction', () => {
   afterEach(async () => {
     await connection.dropDatabase();
     await connection.close();
-    jest.resetAllMocks;
   });
 
   it('should successfully update a transaction account', async () => {

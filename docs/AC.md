@@ -14,6 +14,8 @@ Style / formatting / quality
 - [x] The application has a consistent style / formatting tools to assist future development
 - [x] Code is covered by unit and feature tests
 - [ ] A comprehensive Readme / Documentation file exists
+- [ ] Replace ts-node with ts-node-dev - its faster to recompile
+- [ ] Transaction includes currency so the application can handle multiple currencies
 
 ---
 
@@ -28,8 +30,10 @@ Validation
 
 Docker
 
-- [ ] The application is managed by docker containers to provide it an isolated environment
-- [ ] Explore if Docker volumes would be of use in persisting data
+- [x] The application is managed by docker containers to provide it an isolated environment
+- [x] Explore if Docker volumes would be of use in persisting data
+- [ ] Have the docker image published / maintained on Dockerhub
+- [ ] Tests are run within an isolated docker environment, which includes a test database
 
 ---
 

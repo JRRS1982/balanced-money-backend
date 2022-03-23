@@ -7,7 +7,6 @@ export const toUserEntity = ({
   firstName,
   lastName,
   password,
-  transactions,
   createdAt,
   updatedAt
 }: IUser): IUser => ({
@@ -16,7 +15,6 @@ export const toUserEntity = ({
   firstName,
   lastName,
   password,
-  transactions: transactions ?? [],
   createdAt,
   updatedAt
 });

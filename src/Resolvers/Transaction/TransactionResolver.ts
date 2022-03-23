@@ -4,7 +4,7 @@ import {
   saveTransactionAction,
   updateTransactionAction
 } from '../../Actions';
-import { Transaction } from '../../Entities';
+import { ITransaction, Transaction } from '../../Entities';
 import { Args, Mutation, Query, Resolver } from 'type-graphql';
 import { DeleteTransactionArgs } from './DeleteTransactionArgs';
 import { SaveTransactionArgs } from './SaveTransactionArgs';
@@ -24,14 +24,14 @@ export class TransactionResolver {
   @Mutation(() => Transaction)
   saveTransaction(
     @Args() saveArgs: SaveTransactionArgs
-  ): Promise<Transaction | undefined> {
+  ): Promise<ITransaction | undefined> {
     return saveTransactionAction(saveArgs);
   }
 
   @Mutation(() => Transaction)
   updateTransaction(
     @Args() updateArgs: UpdateTransactionArgs
-  ): Promise<Transaction | undefined> {
+  ): Promise<ITransaction | undefined> {
     return updateTransactionAction(updateArgs);
   }
 

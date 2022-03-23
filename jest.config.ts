@@ -14,7 +14,7 @@ const config: Config.InitialOptions = {
     '^Repositories(.*)$': '<rootDir>/src/Repositories/$1',
     '^Services(.*)$': '<rootDir>/src/Services/$1'
   },
-  resetMocks: true // reset mock state and implementation between each test
+  resetMocks: true // does everything mockClear does after every test and also removes any mocked return values or implementations - a more cautious approach, but means tests should be fully isolated
 };
 
 export default config;

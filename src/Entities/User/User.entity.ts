@@ -4,46 +4,39 @@ import {
   Column,
   CreateDateColumn,
   Entity,
-  JoinColumn,
-  OneToMany,
   PrimaryGeneratedColumn,
   UpdateDateColumn
 } from 'typeorm';
-import { IUser, Transaction } from './';
+import { IUser } from '..';
 
 @Entity()
 @ObjectType()
 export class User extends BaseEntity implements IUser {
   @Field(() => Number)
   @PrimaryGeneratedColumn()
-  id: number;
+  id!: number;
 
   @Field(() => String)
   @Column({ name: 'email', type: 'varchar', length: 255 })
-  email: string;
+  email!: string;
 
   @Field(() => String)
   @Column({ name: 'firstName', type: 'varchar', length: 255 })
-  firstName: string;
+  firstName!: string;
 
   @Field(() => String)
   @Column({ name: 'lastName', type: 'varchar', length: 255 })
-  lastName: string;
+  lastName!: string;
 
   @Field(() => String)
   @Column({ name: 'password', type: 'varchar', length: 255 })
-  password: string;
-
-  @Field(() => [Transaction], { defaultValue: [] })
-  @OneToMany(() => Transaction, (transaction) => transaction.user)
-  @JoinColumn({ name: 'transaction' }) // join on the User Table under transactions column
-  transactions: Transaction[];
+  password!: string; // will need hashing / moving to auth0 at some point maybe
 
   @Field(() => String)
   @CreateDateColumn()
-  createdAt: Date;
+  createdAt!: Date;
 
   @Field(() => String)
   @UpdateDateColumn()
-  updatedAt: Date;
+  updatedAt!: Date;
 }

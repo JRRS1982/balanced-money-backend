@@ -1,20 +1,15 @@
-import { Transaction } from '../../../Entities';
+import { ITransaction } from '../../../Entities';
 import { isDate, isNumber, isString } from 'lodash';
 import { saveTransaction } from '../../../Repositories/Transaction';
+import { SaveTransactionArgs } from '../../../Resolvers/Transaction/SaveTransactionArgs';
 
-export interface ISaveInput {
-  account: string;
-  amount: number;
-  date: Date;
-}
-
-const isValid = (body: ISaveInput): boolean => {
+const isValid = (body: SaveTransactionArgs): boolean => {
   return isString(body.account) && isNumber(body.amount) && isDate(body.date);
 };
 
 export const saveTransactionAction = async (
-  body: ISaveInput
-): Promise<Transaction | undefined> => {
+  body: SaveTransactionArgs
+): Promise<ITransaction | undefined> => {
   const { account, amount, date } = body;
 
   if (!isValid(body)) {

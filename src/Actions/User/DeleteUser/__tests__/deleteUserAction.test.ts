@@ -6,7 +6,7 @@ import { getUser } from '../../../../Repositories/User';
 import { Connection, createConnection } from 'typeorm';
 import { deleteUserAction } from '../';
 
-describe('deleteUsersAction', () => {
+describe('deleteUserAction', () => {
   let connection: Connection;
   let mockUser: IUser;
 

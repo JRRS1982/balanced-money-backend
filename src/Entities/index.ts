@@ -1,4 +1,4 @@
-export { Transaction } from './Transaction.entity';
-export { User } from './User.entity';
-export { IUser } from './IUser';
-export { ITransaction } from './ITransaction';
+export { Transaction } from './Transaction/Transaction.entity';
+export { ITransaction } from './Transaction/ITransaction';
+export { User } from './User/User.entity';
+export { IUser } from './User/IUser';
