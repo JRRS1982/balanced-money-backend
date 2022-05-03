@@ -11,8 +11,8 @@ import {
 } from './Resolvers';
 
 async function main() {
+  const { NODE_DOCKER_PORT } = process.env;
   await createConnection(baseConfig);
-  const port = process.env.NODE_DOCKER_PORT;
 
   const schema = await buildSchema({
     resolvers: [HelloWorldResolver, TransactionResolver, UserResolver]
@@ -20,8 +20,8 @@ async function main() {
 
   const server = new ApolloServer({ schema });
 
-  await server.listen(port, () => {
-    console.log(`Server has started on port ${port}`);
+  await server.listen(NODE_DOCKER_PORT, () => {
+    console.log(`Server has started on port ${NODE_DOCKER_PORT}`);
   });
 }
 main();

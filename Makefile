@@ -1,5 +1,9 @@
 .DEFAULT_GOAL := up
 
+.PHONY: dev
+dev:
+	npm run dev
+
 .PHONY: up
 up:
 	$(MAKE) down

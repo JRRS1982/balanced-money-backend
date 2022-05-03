@@ -6,36 +6,36 @@ A GraphQl API for data persistence of the balanced-money application
 
 ### In Development
 
-```shell
-// currently running this will start the service and make the dockerised api available.
-docker-compose up --build
-```
+Make sure you have a SQL Server running - you may need to start it with a command such as `systemctl start mariadb` if using mariadb.
 
-* Update baseConfig to the database of choice.
-* Make sure you have a SQL server running - locally you may need to start it with `systemctl start mariadb` if using mariadb
-* Install packages with `npm install`
-* Start the server with `npm start`
-* Visit [http://localhost:4000/](http://localhost:4000/) to find the server running
-* Send a graphql query to [http://localhost:4000/graphql](http://localhost:4000/graphql)
+* `make dev` to run the project with nodemon.
+
+// TODO separate dev from prod / stg.
+
+* `make build`, to build otherwise run `make` to restart containers. nb. it takes 60 seconds for the DB container to start as we need to wait for MySql to start.
+
+The GraphQl endpoint should be available at [http://localhost:4000/graphql](http://localhost:4000/graphql)!
 
 ### In Production
 
-TODO: add production endpoint
+TODO: add production endpoint / deploy the api.
 
-* Server should be available for GraphQl requests at XXXX
+* Server should be deployed and available for validated GraphQL requests at XXXX. These requests will need to come from a validated user on the frontend application to be successful.
 
 ## Packages
+
+These are some of the npm packages which were used in the application.
 
 * apollo-server: to build and run the graphQl server
 * [typeorm](https://github.com/typeorm/typeorm): to help interactions with the db
 * reflect-metadata: to work with TS decorators, required if using typeorm
 * typescript: adding types to make JS safer
-* ts-node: to compile and run the code without need of pre-compilation with tsc
-* nodemon: to restart the server when changes are made to the code - a config was created at root level
+* ts-node-dev: to compile and run the TS code without need of pre-compilation with tsc - ts-node-dev is faster to compile than the more common ts-node package, however both of these are not suitable for running an application in production as they re-compile multiple times and ts-node-dev uses ts-node. So in prod we compile and run the JS code.
+* nodemon: to restart the application when changes are made to the code. Thankfully nodemon has inbuilt support for TS code via ts-node / ts-node-dev.
 * mysql: the database
 * [babel](https://jestjs.io/docs/getting-started#using-babel): Jest requires babel for transpiling modern JS
 * lodash: a library of helpful JS functions
-* tsconfig-paths: allow declaration of short paths in tsconfig.json file
+* tsconfig-paths: Allow declaration of short paths in tsconfig.json file - i experimented with this, but discovered that it is not compatible with v23+ of Jest.
 * @babel/plugin-proposal-decorators: Support for the experimental syntax 'decorators-legacy' i.e. the type-graphql decorators
 * @babel/plugin-proposal-class-properties: Support for decorating class properties i.e. decorating classes with type-graphql decorators
 * prettier: standardize formatting of the code
@@ -45,12 +45,13 @@ TODO: add production endpoint
 * husky: hook into git to run commands such as format / lint prior to commit / push
 * [tscpaths](https://www.npmjs.com/package/tscpaths) tsconfig-paths is a more common solution to replacing relative paths with absolute paths, but tscpaths is faster and only requires a small addition to the build script. It's pre v1, so not suitable for a professional product. It's run at compile time and has no runtime dependencies. I reverted away from this in favour of the more reliable tsconfig-paths, and that had issues within the container so i removed that, also tried others, still on the todo list need to read this <https://github.com/jonkwheeler/tsconfig-replace-paths/issues/25>.
 * [express-jwt](https://github.com/auth0/express-jwt/blob/5fb8c88067b9448d746d04ab60ad3b1996c7e310/README.md#express-jwt) Express Middleware to validate JSON web tokens - may bring this in soon.
+* module-alias: to create aliases and register paths in compiled JS code.
 
 ## Scripts
 
 * build: delete dist and compile with tsc
 * start: set the env as production and run dist/index.js file i.e. the compiled code
-* dev: use of nodemon and ts-node to run index.ts after setting environment as dev and loading an env file
+* dev: use of nodemon and ts-node-dev to run index.ts after setting environment as dev and loading an env file. Note the nodemon.json file which contains config. Nodemon will watch for changes and recompile.
 * format:prettier: use a local prettier config to fix formatting
 * lint: use a local eslint config to alert code style issues
 * lint-fix: fix the style issues discovered by eslint
