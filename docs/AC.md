@@ -9,13 +9,17 @@ CRUD
 
 ---
 
+Extra
+
+- [ ] The application can handle multiple currencies
+- [x] Use ts-node-dev - its faster to recompile then ts-node
+
+---
+
 Style / formatting / quality
 
 - [x] The application has a consistent style / formatting tools to assist future development
 - [x] Code is covered by unit and feature tests
-- [ ] A comprehensive Readme / Documentation file exists
-- [ ] Replace ts-node with ts-node-dev - its faster to recompile
-- [ ] Transaction includes currency so the application can handle multiple currencies
 
 ---
 

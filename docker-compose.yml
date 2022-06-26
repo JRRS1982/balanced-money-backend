@@ -7,7 +7,6 @@ services:
     build: 
       context: .
       dockerfile: Dockerfile
-    # TODO investigate uid and gid, how does it get in - from a startup script? Think it needs to be added like user: $UID:$GID if my cmd calls a setup to id on host machine. Needs more investigation. 
     depends_on:
       db:
         condition: service_healthy 
@@ -18,7 +17,7 @@ services:
       - .:/var/www/
     command: npm start
     ports:
-      - $NODE_LOCAL_PORT:$NODE_DOCKER_PORT
+      - $NODE_HOST_PORT:$NODE_DOCKER_PORT
     environment:
       - DB_HOST=$MYSQL_HOST
       - DB_USERNAME=$MYSQL_USER
@@ -39,7 +38,7 @@ services:
       - $MYSQL_LOCAL_PORT:$MYSQL_DOCKER_PORT
     volumes:
       - db:/var/lib/mysql
-    healthcheck: # mysql does not start immediatly, app needs to wait for mysql to start, having  condition: service_healthy on app and a healthcheck makes sure db has started before app... i think.
+    healthcheck: # mysql takes a minuite to startup, we need to force the app to wait for that so having  condition:service_healthy on app and a healthcheck here (i think) achieves that.
       test: mysqladmin ping -h 127.0.0.1 -u $$MYSQL_USER --password=$$MYSQL_PASSWORD
       timeout: 20s
       retries: 10
